@@ -206,7 +206,7 @@
   text-align: left;
 }
 
-.no-bold{
+#no-bold{
   font-weight: normal;
   margin: 0px
 }
@@ -255,14 +255,32 @@
   padding-left:20px
 }
 
+.auth-form {
+  display: grid;
+}
+
+.payment-form {
+  display: grid;
+}
+
+#exp-input {
+  width: 35%;
+}
+
 .center-form {
   border: 2px outset;
   border-radius: 5px;
   width: 20%;
-  height: 200px;
+  height: auto;
   background-color: rgb(128, 211, 250);
-  display: grid;
   padding: 5%;
+  margin-left: 500px;
+  display: flex;
+  justify-content: center;
+}
+
+.checkout-form {
+  display: grid;
 }
 
 .rating {
@@ -286,6 +304,7 @@
   grid-column: 2;
   text-align: left;
   display: grid;
+  height: 400px
 }
 
 .align-left {

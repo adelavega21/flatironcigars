@@ -36,7 +36,7 @@ class CigarIndex extends React.Component{
                     
                 </div>
                 <div className="sort-feature">
-                    <h5>sort</h5>
+                    <h5></h5>
                 </div>
 
                 <div className="item-index">

@@ -11,25 +11,26 @@ class CheckOut extends React.Component{
         return (
             <div className="center-form">
                 <form className="checkout-form" onClick={this.clickHandler()}> 
-                <label>First Name: </label>
-                <input placeholder="First Name" name="first-name"/><br/>
-                <label>Last Name: </label>
-                <input placeholder="Last Name" name="last-name"/><br/>
-                <label>Address Line 1: </label>
-                <input placeholder="Address Line 1" name="address-1"/><br/>
-                <label>Address Line 2: </label>
-                <input placeholder="Address Line 2" name="address-2"/>
-                <h4 className="no-bold">Country:   United States</h4>
-                <label>City: </label>
-                <input placeholder="City" name="city"/><br/>
-                <label>State: </label>
-
-                <label>Zip Code: </label>
-                <input placeholder="Zip Code" name="zip-code"/><br/>
-                <label>Phone Number: </label>
-                <input placeholder="Phone Number" name="phone"/><br/>
-                <label>Email Address: </label>
-                <input placeholder="Email Address" name="email"/><br/>
+                <label className="align-left">First Name: </label>
+                <input className="align-right" placeholder="First Name" name="first-name"/><br/>
+                <label className="align-left">Last Name: </label>
+                <input className="align-right" placeholder="Last Name" name="last-name"/><br/>
+                <label className="align-left">Address Line 1: </label>
+                <input className="align-right" placeholder="Address Line 1" name="address-1"/><br/>
+                <label className="align-left">Address Line 2: </label>
+                <input className="align-right" placeholder="Address Line 2" name="address-2"/><br/>
+                <label className="align-left">Country:</label>
+                <input className="align-right" value="United States" name="country"/><br/>
+                <label className="align-left">City: </label>
+                <input className="align-right" placeholder="City" name="city"/><br/>
+                <label className="align-left">State: </label>
+                <input className="align-right" placeholder="State" name="state"/><br/>
+                <label className="align-left">Zip Code: </label>
+                <input className="align-right" placeholder="Zip Code" name="zip-code"/><br/>
+                <label className="align-left">Phone Number: </label>
+                <input className="align-right" placeholder="Phone Number" name="phone"/><br/>
+                <label className="align-left">Email Address: </label>
+                <input className="align-right" placeholder="Email Address" name="email"/><br/>
                 <Link to="/paymentpage">
                         <button className="continue-checkout" type="submit" >Continue Checkout</button>
                     </Link>

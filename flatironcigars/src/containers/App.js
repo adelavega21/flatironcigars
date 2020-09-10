@@ -48,10 +48,10 @@ class App extends React.Component {
      },
         body: JSON.stringify({user_id: user.id})
       }).then(res => res.json())
-        .then(response => {
-          this.setState({currentCart: response})
+        .then(response => 
+          {this.setState({currentCart: response})
       })
-    
+    this.setState({cartItems: []})
     
   }
 
@@ -159,6 +159,37 @@ class App extends React.Component {
     copyOfcartItemsState[elementsIndex] = cartItem
     this.setState({cartItems: copyOfcartItemsState})
   }
+
+  updateInventory=()=>{
+    // const elementsIndex = this.state.items.findIndex(element => element.id === item.id)
+    // let updatedCartItems = []
+    // let newActualCartItems = [...this.state.items]
+    for(const cartItem of this.state.cartItems){
+      let newCartItemsArr = this.state.items.filter(item => item.id === cartItem.item_id)
+      newCartItemsArr.map(item => this.patchInventory(item, cartItem.quantity))
+
+    }
+  }
+
+  patchInventory=(item,quantity)=>{
+    let newInventory = item.inventory - quantity
+
+    fetch(`http://localhost:3000/api/v1/items/${item.id}`, {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json"
+            },
+            body: JSON.stringify({ inventory: newInventory })
+        })
+        .then(res => res.json())
+        .then(response => console.log(response))
+
+        this.getAllItems()
+        this.getAllCigars()
+        this.getAllAccessories()
+        
+  }
   
   
   
@@ -174,7 +205,7 @@ class App extends React.Component {
           <Route path="/login" render={(routerProps) => <Login {...routerProps} setUser={this.setUser} createCart={this.createCart}/>}/>
           <Route path="/signup" render={() => <SignUp setUser={this.setUser}/>}/>
           <Route path="/checkout" render={() => <CheckOut />} />
-          <Route path="/paymentpage" render={() => <PaymentPage />} />
+          <Route path="/paymentpage" render={() => <PaymentPage updateInventory={this.updateInventory} createCart={this.createCart} currentUser={this.state.currentUser}/>} />
           <Route path="/orderconfirm" render={() => <OrderConfirm />}/>
           <Route path="/brands" render={() => <BrandIndex brands={this.state.brands} setChosenBrand={this.setChosenBrand}/>}/> 
           <Route path="/:brandId" render={() => <BrandItemIndex items={this.state.items} setChosenItem={this.setChosenItem} chosenBrand={this.state.chosenBrand}/>}/>

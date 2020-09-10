@@ -45,10 +45,14 @@ class SignUp extends React.Component {
     return (
       <div className="center-form">
           <form className="auth-form"> 
-          <input name="name" placeholder="name"/><br/>
-          <input name="username" placeholder="username"/><br/>
-          <input name="password" type="password"  placeholder="password"/><br/>
-          <input name="passwordConfirmation"  type="password"  placeholder="password confirmation"/><br/><br/>
+          <label className="align-left">Name: </label>
+          <input className="align-right" name="name" placeholder="name"/><br/>
+          <label className="align-left">Username: </label>
+          <input className="align-right" name="username" placeholder="username"/><br/>
+          <label className="align-left">Password: </label>
+          <input className="align-right" name="password" type="password"  placeholder="password"/><br/>
+          <label className="align-left">Confirm Password: </label>
+          <input className="align-right" name="passwordConfirmation"  type="password"  placeholder="password confirmation"/><br/>
           <button className="login" type="submit">Sign Up!</button>
         </form>
       </div>
